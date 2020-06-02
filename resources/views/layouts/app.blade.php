@@ -11,6 +11,7 @@
         @include('inc.header')
 
         <div class="container">
+            @include('inc.messages')
             @yield('content')
             @include('inc.footer')
         </div>

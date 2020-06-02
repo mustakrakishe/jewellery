@@ -16,11 +16,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->char('code', 20)->unique();
-            $title->char('title', 50);
-            $title->float('weight', 5, 2);
-            $title->float('cost', 8, 2);
-            $title->string('description', 250);
-            $title->string('imagePath', 250);
+            $table->char('title', 50);
+            $table->float('weight', 5, 2);
+            $table->float('cost', 8, 2);
+            $table->string('description', 250);
+            $table->string('imagePath', 250);
             $table->timestamps();
         });
     }

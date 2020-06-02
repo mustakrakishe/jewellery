@@ -5,15 +5,6 @@
 @endsection
 
 @section('content')
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
     <form action="{{ route('addProduct_form') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -34,7 +25,7 @@
                     <label for="weight">Вес</label>
                     <div class="form-row">
                         <div class="col-5 col-lg-3">
-                            <input type="number" name="weight" id="weight" step="0.1" placeholder="Вес" class="form-control">
+                            <input type="number" name="weight" id="weight" step="0.01" placeholder="Вес" class="form-control">
                         </div>
                         <div class="col"> г</div>
                     </div>
