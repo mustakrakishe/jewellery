@@ -22,6 +22,26 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="type">Тип</label>
+
+                    <div class="form-row">
+                        <div class="col-5 col-lg-3">
+                            <select class="custom-select" name="type" id="type">
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-5 col-lg-4">
+                            <input type="checkbox" name="newType" id="newType">
+                            <label for="newType">Новый</label>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="form-group">
                     <label for="weight">Вес</label>
                     <div class="form-row">
                         <div class="col-5 col-lg-3">

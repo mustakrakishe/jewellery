@@ -6,14 +6,9 @@ Route::get('/', function(){
     return view('home');
 })->name('home');
 
-Route::post(
-    'catalogue/addProduct/submit',
-    'catalogueController@showAll'
-)->name('addProduct_form');
-
-Route::get('/catalogue/addProduct', function(){
-    return view('addProduct');
-})->name('catalogue_addProduct');
+Route::get('/catalogue/addProduct',
+    'catalogueController@showTemplate'
+)->name('catalogue_addProduct');
 
 Route::post(
     'catalogue/addProduct/submit',
