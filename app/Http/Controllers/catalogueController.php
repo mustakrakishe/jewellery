@@ -26,7 +26,7 @@ class catalogueController extends Controller{
         $product->code = $req->input('code');
         $product->title = $req->input('title');
 
-        if(isset($_POST['newType'])){
+        if(isset($req->newType)){
             $productType = new ProductType();
             $productType->title = $req->input('type');
             $productType->save();
@@ -41,7 +41,14 @@ class catalogueController extends Controller{
         $product->weight = $req->input('weight');
         $product->cost = $req->input('cost');
         $product->description = $req->input('description');
-        $product->imagePath = 'imageLink';
+
+        if(isset($req->pic)){
+            $product->imagePath = $req->pic->store('productImages');
+        }
+        else{
+            $product->imagePath = 'imageLink';
+        }
+
 
         $product->save();
         return redirect()->route('catalogue_addProduct')->with('success', 'Продукт успешно добавлен!');
