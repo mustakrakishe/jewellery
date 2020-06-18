@@ -22,7 +22,7 @@ class addProductRequest extends FormRequest
      */
     public function rules(){
         return [
-            'code' => 'required | max:20',
+            'code' => 'required | max:30',
             'title' => 'required | max:50',
             'weight' => 'required | max:500',
             'cost' => 'required | max:500000',
@@ -34,7 +34,7 @@ class addProductRequest extends FormRequest
     public function messages(){
         return[
             'code.required' => 'Поле Артикул обязательно для заполнеия.',
-            'code.max' => 'Поле Артикул должно включать не более 20 символов.',
+            'code.max' => 'Поле Артикул должно включать не более 30 символов.',
             
             'title.required' => 'Поле Название обязательно для заполнеия.',
             'title.max' => 'Поле Название должно включать не более 50 символов.',

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-
+    <script src="/js/catalogue/addProduct.js"></script>
     <form action="{{ route('addProduct_form') }}" method="post" enctype="multipart/form-data">
         @csrf
 

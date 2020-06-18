@@ -10,6 +10,11 @@ Route::get('/catalogue/addProduct',
     'catalogueController@showTemplate'
 )->name('catalogue_addProduct');
 
+Route::get(
+    'catalogue/addProduct/getProductTypes',
+    'catalogueController@getProductTypes'
+)->name('catalogue_addProduct_getProductTypes');
+
 Route::post(
     'catalogue/addProduct/submit',
     'catalogueController@submit'
