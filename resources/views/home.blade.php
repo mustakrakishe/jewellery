@@ -5,12 +5,19 @@
 @endsection
 
 @section('content')
+<h1 class="text-center text-dark mb-3">Главная</h1>
     <div class="row">
         @foreach($products as $product)
-            <div class="col-3">
-                <div class="row"><img src="{{ asset('storage/'.$product->imagePath) }}" width="200"></div>
-                <div class="row"><p>{{ $product->title }}</p></div>
-                <div class="row"><p>{{ $product->cost }} грн.</p></div>
+            <div class="col-md-3 col-6 mb-4 product-cell">
+                <div class="row">
+                    <div class="col-11 mx-auto bg-white product-content-cell shadow">
+                        
+                        <div class="row mt-3" style="height:200px"><img src="{{ asset('storage/'.$product->imagePath) }}" height="100%" class="mx-auto"></div>
+                        <div class="row text-center"><p class="mx-auto">{{ $product->title }}</p></div>
+                        <div class="row text-center align-bottom position-absolute fixed-bottom"><p class="mx-auto">{{ number_format($product->cost, 0, ',', ' ') }} грн.</p></div>
+            
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>

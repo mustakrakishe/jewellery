@@ -2,3 +2,12 @@
 body{
     background: #f3f3f3 
 }
+
+.product-content-cell{
+    height: 320px;
+}
+
+.product-content-cell:hover{
+    
+    box-shadow:  5px black;
+}

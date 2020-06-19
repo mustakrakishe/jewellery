@@ -45,7 +45,7 @@ class catalogueController extends Controller{
             $product->imagePath = $req->pic->store('productImages');
         }
         else{
-            $product->imagePath = 'imageLink';
+            $product->imagePath = 'productImages/placeholder.jpg';
         }
 
 
