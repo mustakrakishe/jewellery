@@ -8,8 +8,12 @@ use App\Models\Product;
 use App\Models\ProductType;
 
 class catalogueController extends Controller{
-    public function showAll(){
+    public function showAllProducts(){
         return view('home', ['products' => Product::all()]);
+    }
+
+    public function showOneProduct($id){
+        return view('product', ['product' => Product::find($id)]);
     }
 
     public function getProductTypes(){
