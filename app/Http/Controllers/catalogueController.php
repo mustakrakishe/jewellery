@@ -9,7 +9,7 @@ use App\Models\ProductType;
 
 class catalogueController extends Controller{
     public function showAll(){
-
+        return view('home', ['products' => Product::all()]);
     }
 
     public function getProductTypes(){
@@ -31,8 +31,7 @@ class catalogueController extends Controller{
             $productType->title = $req->input('type');
             $productType->save();
 
-            $productType = ProductType::where('title', $productType->title)->get();
-            $product->product_type_id = $productType[0]->id;
+            $product->product_type_id = $productType->id;
         }
         else{
             $product->product_type_id = $req->input('type');
