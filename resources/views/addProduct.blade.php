@@ -6,11 +6,14 @@
 
 @section('content')
     <script src="/js/catalogue/addProduct.js"></script>
+    
+    <h1 class="text-center text-dark mb-3">Добавить продукт</h1>
+
     <form action="{{ route('addProduct_form') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col col-md-6">
                 <div class="form-group">
                     <label for="code">Артикул</label>
                     <input type="text" name="code" id="code" placeholder="Артикул" class="form-control">

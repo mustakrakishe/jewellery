@@ -9,7 +9,7 @@ use App\Models\ProductType;
 
 class catalogueController extends Controller{
     public function showAllProducts(){
-        return view('home', ['products' => Product::all()]);
+        return view('home', ['products' => Product::orderBy('updated_at', 'desc')->get()]);
     }
 
     public function showOneProduct($id){
@@ -45,8 +45,8 @@ class catalogueController extends Controller{
         $product->cost = $req->input('cost');
         $product->description = $req->input('description');
 
-        if(isset($req->pic)){
-            $product->imagePath = $req->pic->store('productImages');
+        if($req->has('pic')){
+            $product->imagePath = $req->pic->store('productImages', 'public');
         }
         else{
             $product->imagePath = 'productImages/placeholder.jpg';
