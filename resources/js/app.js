@@ -1,1 +1,1 @@
-require('./bootstrap');
+require('./libraries/bootstrap');

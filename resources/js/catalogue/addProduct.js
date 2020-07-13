@@ -1,7 +1,7 @@
 const { forEach } = require("lodash");
 window.$ = window.jQuery = require('jquery');
 
-$( document ).ready(function() {
+$(document).ready(function(){
     $('#newType').change(function(){
         if($(this).prop('checked') == true){
             $('#type').replaceWith('<input type="text" name="type" id="type" placeholder="Тип" class="form-control">');
@@ -15,7 +15,7 @@ $( document ).ready(function() {
                 types.forEach(function(type){
                     $('#type').append('<option value="' + type.id + '">' + type.title + '</option>');
                 });
-            }, "json" );
+            }, "json");
         }
     })
 });

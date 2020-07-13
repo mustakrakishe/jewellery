@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/catalogue/addProduct.js": "/js/catalogue/addProduct.js"
+    "/css/pages/home.css": "/css/pages/home.css",
+    "/js/catalogue/addProduct.js": "/js/catalogue/addProduct.js",
+    "/js/catalogue/productList.js": "/js/catalogue/productList.js"
 }

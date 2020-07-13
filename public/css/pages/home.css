@@ -1,0 +1,17 @@
+.product_cell > a {
+  color: #343a40;
+}
+
+.product_cell > a:hover {
+  color: #343a40;
+  text-decoration: none;
+}
+
+.product-content-cell > .image {
+  height: 200px;
+}
+
+.product-content-cell > .title {
+  height: 50px;
+}
+
