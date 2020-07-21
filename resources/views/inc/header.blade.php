@@ -7,5 +7,11 @@
     <a class="p-2 text-dark" href="#">Корзина</a>
     <a class="p-2 text-dark" href="#">О нас</a>
   </nav>
-  <a class="btn btn-outline-primary" href="#">Sign up</a>
+
+  @auth
+    <a class="btn btn-outline-primary" href="{{ route('logout') }}">Выйти</a>
+  @else
+    <a class="btn btn-outline-primary" href="{{ route('login') }}">Войти</a>
+    <a class="btn btn-outline-primary" href="{{ route('register') }}">Регистрация</a>
+  @endauth
 </div>
