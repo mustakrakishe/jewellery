@@ -27,8 +27,13 @@ Route::post(
 Route::get('/bag', function(){
 })->name('bag');
 
-Route::get('/signin', function(){
-})->name('signin');
+Route::get(
+    'logout',
+    function(){
+        Auth::logout();
+        return redirect('/');
+    });
 
-Route::get('/login', function(){
-})->name('login');
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
