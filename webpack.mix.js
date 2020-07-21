@@ -12,7 +12,4 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/catalogue/addProduct.js', 'public/js/catalogue')
-    .js('resources/js/catalogue/productList.js', 'public/js/catalogue')
-    .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/pages/home.scss', 'public/css/pages');
+    .sass('resources/sass/app.scss', 'public/css');
