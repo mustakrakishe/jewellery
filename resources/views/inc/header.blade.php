@@ -12,6 +12,6 @@
     <a class="btn btn-outline-primary" href="{{ route('logout') }}">Выйти</a>
   @else
     <a class="btn btn-outline-primary" href="{{ route('login') }}">Войти</a>
-    <a class="btn btn-outline-primary" href="{{ route('register') }}">Регистрация</a>
+    <a class="ml-2 btn btn-outline-primary" href="{{ route('register') }}">Регистрация</a>
   @endauth
 </div>
