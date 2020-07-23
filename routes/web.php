@@ -12,7 +12,7 @@ Route::get('/catalogue/product_{id}',
 
 Route::get('/catalogue/addProduct',
     'catalogueController@showTemplate'
-)->name('catalogue_addProduct');
+)->middleware('role:admin')->name('catalogue_addProduct');
 
 Route::get(
     'catalogue/addProduct/getProductTypes',
