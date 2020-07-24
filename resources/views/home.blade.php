@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="css/pages/home.css">
+<link rel="stylesheet" href="css/inc/productList.css">
 <script src="/js/catalogue/productList.js"></script>
 
 <h1 class="text-center text-dark mb-3">Главная</h1>

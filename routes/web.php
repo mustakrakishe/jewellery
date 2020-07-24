@@ -6,6 +6,14 @@ Route::get('/',
     'catalogueController@showAllProducts'
 )->name('home');
 
+Route::get('/catalogue',
+    'catalogueController@showCatalogue'
+)->name('catalogue');
+
+Route::post('/catalogue/setFilters',
+    'catalogueController@setFilters'
+)->name('catalogue/setFilters');
+
 Route::get('/catalogue/product_{id}',
     'catalogueController@showOneProduct'
 )->name('catalogue_showOneProduct');
@@ -15,12 +23,12 @@ Route::get('/catalogue/addProduct',
 )->middleware('role:admin')->name('catalogue_addProduct');
 
 Route::get(
-    'catalogue/addProduct/getProductTypes',
+    '/catalogue/addProduct/getProductTypes',
     'catalogueController@getProductTypes'
 )->name('catalogue_addProduct_getProductTypes');
 
 Route::post(
-    'catalogue/addProduct/submit',
+    '/catalogue/addProduct/submit',
     'catalogueController@submit'
 )->name('addProduct_form');
 
@@ -28,7 +36,7 @@ Route::get('/bag', function(){
 })->name('bag');
 
 Route::get(
-    'logout',
+    '/logout',
     function(){
         Auth::logout();
         return redirect('/');

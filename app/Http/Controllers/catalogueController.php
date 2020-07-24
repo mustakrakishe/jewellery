@@ -8,8 +8,36 @@ use App\Models\Product;
 use App\Models\ProductType;
 
 class catalogueController extends Controller{
+
     public function showAllProducts(){
         return view('home', ['products' => Product::orderBy('updated_at', 'desc')->get()]);
+    }
+
+    public function showCatalogue(){
+        return view('catalogue', [
+            'products' => Product::orderBy('updated_at', 'desc')->get(),
+            'types' => ProductType::all()
+        ]);
+    }
+
+    public function setFilters(){
+        if($_POST){
+            $types = array_filter($_POST, function($key){
+                return preg_match('|^(type)|', $key);
+            }, ARRAY_FILTER_USE_KEY);
+
+            if($types){
+                return view('catalogue', [
+                    'products' => Product::whereIn('product_type_id', $types)->orderBy('updated_at', 'desc')->get(),
+                    'types' => ProductType::all()
+                ]);
+            }
+        }
+
+        return view('catalogue', [
+            'products' => Product::orderBy('updated_at', 'desc')->get(),
+            'types' => ProductType::all()
+        ]);
     }
 
     public function showOneProduct($id){
