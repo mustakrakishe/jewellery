@@ -27,8 +27,7 @@
                                     id="type{{ $type->id }}"
                                     value="{{ $type->id }}"
                                     <?php
-                                        $name = 'type' . $type->id;
-                                        if(isset($_POST[$name])){
+                                        if(isset($_POST["type$type->id"])){
                                             echo 'checked';
                                         }
                                     ?>
@@ -37,6 +36,48 @@
                             </li>
                         @endforeach
                     </ul>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-bottom: 8px">Цена</p>
+
+                    <div class="row">
+                        <div class="col-5 justify-content-center">
+                            <input
+                                type="number"
+                                name="cost-min"
+                                id="cost-min"
+                                style="width:100%;"
+                                placeholder="От"
+                                <?php
+                                    if(isset($_POST['cost-min'])){
+                                        $cost_min = $_POST['cost-min'];
+                                        if($cost_min != null){
+                                            echo "value=\"$cost_min\"";
+                                        }
+                                    }
+                                ?>
+                            >
+                        </div>
+                        <div class="col justify-content-center"><p class="text-center">-</p></div>
+                        <div class="col-5 justify-content-center">
+                            <input
+                                type="number"
+                                name="cost-max"
+                                id="cost-max"
+                                style="width:100%;"
+                                placeholder="До"
+                                <?php
+                                    if(isset($_POST['cost-max'])){
+                                        $cost_max = $_POST['cost-max'];
+                                        if($cost_max != null){
+                                            echo "value=\"$cost_max\"";
+                                        }
+                                    }
+                                ?>
+                            >
+                        </div>
+                    </div>
                 </div>
 
                 <input type="submit" value="Применить">

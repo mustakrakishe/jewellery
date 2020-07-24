@@ -21,21 +21,28 @@ class catalogueController extends Controller{
     }
 
     public function setFilters(){
-        if($_POST){
-            $types = array_filter($_POST, function($key){
-                return preg_match('|^(type)|', $key);
-            }, ARRAY_FILTER_USE_KEY);
+        $products = Product::orderBy('updated_at', 'desc')->get();
 
-            if($types){
-                return view('catalogue', [
-                    'products' => Product::whereIn('product_type_id', $types)->orderBy('updated_at', 'desc')->get(),
-                    'types' => ProductType::all()
-                ]);
-            }
+        $types = array_filter($_POST, function($key){
+            return preg_match('|^(type)|', $key);
+        }, ARRAY_FILTER_USE_KEY);
+
+        if($types){
+            $products = $products->whereIn('product_type_id', $types);
+        }
+
+        $cost_min = $_POST['cost-min'];
+        if($cost_min != null){
+            $products = $products->where('cost', '>=', $cost_min);
+        }
+
+        $cost_max = $_POST['cost-max'];
+        if($cost_max != null){
+            $products = $products->where('cost', '<=', $cost_max);
         }
 
         return view('catalogue', [
-            'products' => Product::orderBy('updated_at', 'desc')->get(),
+            'products' => $products,
             'types' => ProductType::all()
         ]);
     }
