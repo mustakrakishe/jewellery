@@ -1,6 +1,20 @@
 window.$ = window.jQuery = require('jquery');
 
 $(document).ready(function(){
+    $('#allTypes, [class=type]').prop('checked', true);
+
+    $('#allTypes').change(function(){
+        if ($(this).is(':checked')){
+            $('[class=type]').prop('checked', true);
+        }
+    });
+
+    $('[class=type]').change(function(){
+        if ($(this).not(':checked') && $('#allTypes').is(':checked')){
+            $('#allTypes').prop('checked', false);
+        }
+    });
+
     $('#orderControl').change(function(){
         $('#presentRulesForm').submit();
     });
@@ -12,7 +26,6 @@ $(document).ready(function(){
             url: '/catalogue/getProguctSelection',
             type: "POST",
             data: $('#presentRulesForm').serializeArray(),
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         })
         .done(function(data){
             if(data){

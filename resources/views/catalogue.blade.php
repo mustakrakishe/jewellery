@@ -19,20 +19,13 @@
                 <div class="form-group">
                     <h6>Тип</h6>
                     <ul type="none" class="pl-0">
+                            <li>
+                                <input type="checkbox" name="allTypes" id="allTypes">
+                                <label for="allTypes"> Все</label>
+                            </li>
                         @foreach($types as $type)
                             <li>
-                                <input
-                                    type="checkbox"
-                                    class="type"
-                                    name="type{{ $type->id }}"
-                                    id="type{{ $type->id }}"
-                                    value="{{ $type->id }}"
-                                    <?php
-                                        if(isset($_POST["type$type->id"])){
-                                            echo 'checked';
-                                        }
-                                    ?>
-                                >
+                                <input type="checkbox" class="type" name="type{{ $type->id }}" id="type{{ $type->id }}" value="{{ $type->id }}">
                                 <label for="type{{ $type->id }}"> {{ $type->title }}</label>
                             </li>
                         @endforeach
@@ -44,39 +37,11 @@
 
                     <div class="row">
                         <div class="col-5 justify-content-center">
-                            <input
-                                type="number"
-                                name="cost-min"
-                                id="cost-min"
-                                style="width:100%;"
-                                placeholder="От"
-                                <?php
-                                    if(isset($_POST['cost-min'])){
-                                        $cost_min = $_POST['cost-min'];
-                                        if($cost_min != null){
-                                            echo "value=\"$cost_min\"";
-                                        }
-                                    }
-                                ?>
-                            >
+                            <input type="number" name="cost-min" id="cost-min" style="width:100%;" placeholder="От">
                         </div>
                         <div class="col justify-content-center"><p class="text-center">-</p></div>
                         <div class="col-5 justify-content-center">
-                            <input
-                                type="number"
-                                name="cost-max"
-                                id="cost-max"
-                                style="width:100%;"
-                                placeholder="До"
-                                <?php
-                                    if(isset($_POST['cost-max'])){
-                                        $cost_max = $_POST['cost-max'];
-                                        if($cost_max != null){
-                                            echo "value=\"$cost_max\"";
-                                        }
-                                    }
-                                ?>
-                            >
+                            <input type="number" name="cost-max" id="cost-max" style="width:100%;" placeholder="До">
                         </div>
                     </div>
                 </div>
