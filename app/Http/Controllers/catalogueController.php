@@ -20,32 +20,34 @@ class catalogueController extends Controller{
         ]);
     }
 
-    public function setFilters(){
-        $products = Product::orderBy('updated_at', 'desc')->get();
+    public function getProguctSelection(request $presentRules){
+        $order = $presentRules->orderControl;
+        $order_rule = explode(',', $order);        
+        $products = Product::orderBy($order_rule[0], $order_rule[1])->get();
 
-        $types = array_filter($_POST, function($key){
+        $types = collect($presentRules)->filter(function ($value, $key) {
             return preg_match('|^(type)|', $key);
-        }, ARRAY_FILTER_USE_KEY);
-
-        if($types){
-            $products = $products->whereIn('product_type_id', $types);
+        });
+        
+        if(sizeof($types->values())){
+            $products = $products->whereIn('product_type_id', $types->values());
         }
 
-        $cost_min = $_POST['cost-min'];
+        $cost_min = $presentRules['cost-min'];
+
         if($cost_min != null){
             $products = $products->where('cost', '>=', $cost_min);
         }
 
-        $cost_max = $_POST['cost-max'];
+         $cost_max = $presentRules['cost-max'];
+
         if($cost_max != null){
             $products = $products->where('cost', '<=', $cost_max);
         }
 
-        return view('catalogue', [
-            'products' => $products,
-            'types' => ProductType::all()
-        ]);
-    }
+        return $products;
+}
+
 
     public function showOneProduct($id){
         return view('product', ['product' => Product::find($id)]);

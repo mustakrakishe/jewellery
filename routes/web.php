@@ -10,9 +10,9 @@ Route::get('/catalogue',
     'catalogueController@showCatalogue'
 )->name('catalogue');
 
-Route::post('/catalogue/setFilters',
-    'catalogueController@setFilters'
-)->name('catalogue/setFilters');
+Route::post('/catalogue/getProguctSelection',
+    'catalogueController@getProguctSelection'
+)->name('catalogue_getProguctSelection');
 
 Route::get('/catalogue/product_{id}',
     'catalogueController@showOneProduct'

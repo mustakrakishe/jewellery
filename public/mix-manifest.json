@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/inc/productList.css": "/css/inc/productList.css",
     "/js/catalogue/addProduct.js": "/js/catalogue/addProduct.js",
+    "/js/catalogue/catalogue.js": "/js/catalogue/catalogue.js",
     "/js/catalogue/productList.js": "/js/catalogue/productList.js"
 }
