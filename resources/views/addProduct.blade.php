@@ -9,7 +9,7 @@
     
     <h1 class="text-center text-dark mb-3">Добавить продукт</h1>
 
-    <form action="{{ route('addProduct_form') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('addProduct_confirm') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="row justify-content-center">

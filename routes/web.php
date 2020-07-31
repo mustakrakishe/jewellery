@@ -28,9 +28,9 @@ Route::get(
 )->name('catalogue_addProduct_getProductTypes');
 
 Route::post(
-    '/catalogue/addProduct/submit',
-    'catalogueController@submit'
-)->name('addProduct_form');
+    '/catalogue/addProduct/confirm',
+    'catalogueController@addProduct'
+)->name('addProduct_confirm');
 
 Route::get('/bag', function(){
 })->name('bag');

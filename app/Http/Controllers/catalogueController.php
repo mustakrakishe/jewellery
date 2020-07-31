@@ -61,7 +61,7 @@ class catalogueController extends Controller{
         return view('addProduct', ['types' => ProductType::all()]);
     }
 
-    public function submit(addProductRequest $req){
+    public function addProduct(addProductRequest $req){
         $product = new Product;
 
         $product->code = $req->input('code');
