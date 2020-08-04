@@ -62,6 +62,18 @@
                 </div>
             </div>
             <div class="product_container row">
+                @if(Auth::check() && Auth::user()->role == 'admin')
+                    <div id="addNewProduct" class="product_cell col-md-4 col-6 mb-4">
+                        <a href="{{ route('catalogue_addProduct') }}">
+                            <div class="row m-0 p-0">
+                                <div class="col text-center mx-auto px-5 bg-white product-content-cell shadow-sm">
+                                    <div class="row my-3 image" style="height:200px"><img src="{{ asset('storage/productImages/addNew.jpg') }}" height="100%" class="mx-auto"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endif
+
                 @foreach($products as $product) 
                     <div class="product_cell col-md-4 col-6 mb-4">
                         <a href="{{ route('catalogue_showOneProduct', $product->id) }}">   

@@ -29,8 +29,7 @@ $(document).ready(function(){
         })
         .done(function(data){
             if(data){
-                $('.product_cell').remove();
-
+                $('.product_cell:not(#addNewProduct)').remove();
                 for(productId in data){
                     var product = data[productId];
                     var imgPath = "/storage/" + product.imagePath;
@@ -49,6 +48,16 @@ $(document).ready(function(){
                         +'</div>'
                     );
                 };
+
+                $('.product-content-cell').mouseenter(function(){
+                    $(this).removeClass('shadow-sm');
+                    $(this).addClass('shadow');
+                })
+            
+                $('.product-content-cell').mouseleave(function(){
+                    $(this).removeClass('shadow');
+                    $(this).addClass('shadow-sm');
+                })
             }
         })
     })
