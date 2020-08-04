@@ -93,4 +93,12 @@ class catalogueController extends Controller{
         $product->save();
         return redirect()->route('catalogue_addProduct')->with('success', 'Продукт успешно добавлен!');
     }
+
+    // public function store(StoreBlogPost $request)
+    // {
+    //     // The incoming request is valid...
+
+    //     // Retrieve the validated input data...
+    //     $validated = $request->validated();
+    // }
 }

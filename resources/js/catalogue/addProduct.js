@@ -4,7 +4,7 @@ window.$ = window.jQuery = require('jquery');
 $(document).ready(function(){
     $('#newType').change(function(){
         if($(this).prop('checked') == true){
-            $('#type').replaceWith('<input type="text" name="type" id="type" placeholder="Тип" class="form-control">');
+            $('#type').replaceWith('<input type="text" name="type" id="type" class="form-control" placeholder="Тип" class="form-control"  required>');
         }
         else{
             $('#type').replaceWith(

@@ -1,0 +1,10 @@
+db_jewellery_2020-07-23.sql
+Созданы и заполнены таблицы:
+    - failed_jobs;
+    - migrations;
+    - password_resets;
+    - products;
+    - users.
+
+db_jewellery_2020-07-23.sql
+Добавлена возможность оставить пустым поле description в таблице products.
