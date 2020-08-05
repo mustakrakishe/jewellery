@@ -12,7 +12,7 @@
 
 <h1 class="text-center text-dark mb-3">Каталог</h1>
     <div class="row">
-        <div class="control-panel col-3 bg-white shadow-sm py-4">
+        <div class="control-panel col-md-3 col-6 bg-white shadow-sm py-4">
             <h5 class="text-center text-dark">Фильтры</h5>
             <form id="presentRulesForm" action="#" method="post">
                 @csrf
@@ -51,7 +51,7 @@
 
         <div class="product-list col">
             <div class="row">
-                <div class="col-4 form-group">
+                <div class="col-md-4 col-12 form-group">
                     <label for="order-control">Сортировать:</label>
                     <select form="presentRulesForm" class="custom-select" name="orderControl" id="orderControl">
                         <option value="updated_at,desc">От новых к старым</option>
@@ -75,7 +75,7 @@
                 @endif
 
                 @foreach($products as $product) 
-                    <div class="product_cell col-md-4 col-6 mb-4">
+                    <div class="product_cell col-md-4 col-12 mb-4">
                         <a href="{{ route('catalogue_showOneProduct', $product->id) }}">   
                             <div class="row m-0 p-0">
                                 <div class="col text-center mx-auto px-5 bg-white product-content-cell shadow-sm">
