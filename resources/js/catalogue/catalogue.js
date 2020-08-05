@@ -7,6 +7,9 @@ $(document).ready(function(){
         if ($(this).is(':checked')){
             $('[class=type]').prop('checked', true);
         }
+        else{
+            $('[class=type]').prop('checked', false);
+        }
     });
 
     $('[class=type]').change(function(){
