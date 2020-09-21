@@ -10998,7 +10998,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\documents\book\try\clone\jewellery\resources\js\catalogue\productList.js */"./resources/js/catalogue/productList.js");
+module.exports = __webpack_require__(/*! D:\documents\coding\free_time\2020-09-07 laravel\jewellery\resources\js\catalogue\productList.js */"./resources/js/catalogue/productList.js");
 
 
 /***/ })
