@@ -1,10 +1,10 @@
 window.$ = window.jQuery = require('jquery');
 
-$(document).ready(function(){
+$(function(){
     $('#allTypes, [class=type]').prop('checked', true);
 
     $('#allTypes').change(function(){
-        if ($(this).is(':checked')){
+        if($(this).is(':checked')){
             $('[class=type]').prop('checked', true);
         }
         else{
@@ -13,8 +13,12 @@ $(document).ready(function(){
     });
 
     $('[class=type]').change(function(){
-        if ($(this).not(':checked') && $('#allTypes').is(':checked')){
+        if($(this).not(':checked') && $('#allTypes').is(':checked')){
             $('#allTypes').prop('checked', false);
+        }
+        else if(!$('[class=type]').not(':checked').length){
+            $('#allTypes').prop('checked', true);
+
         }
     });
 
