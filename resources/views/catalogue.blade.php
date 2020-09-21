@@ -52,7 +52,7 @@
         <div class="product-list col">
             <div class="row">
                 <div class="col-md-4 col-12 form-group">
-                    <label for="order-control">Сортировать:</label>
+                    <label for="order-control">Порядок:</label>
                     <select form="presentRulesForm" class="custom-select" name="orderControl" id="orderControl">
                         <option value="updated_at,desc">От новых к старым</option>
                         <option value="updated_at,asc">От старых к новым</option>
