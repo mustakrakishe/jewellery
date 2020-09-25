@@ -3,14 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use App\Http\Requests\addProductRequest;
 use App\Models\Product;
 use App\Models\ProductType;
 
+use Predis\Connection\ConnectionException;
+
 class catalogueController extends Controller{
 
     public function showAllProducts(){
-        return view('home', ['products' => Product::orderBy('updated_at', 'desc')->get()]);
+        $products = '';
+        try{
+            if(!Redis::EXISTS('products')){
+                Redis::SET('products', Product::orderBy('updated_at', 'desc')->get());
+            }
+            $products = json_decode(Redis::GET('products'));
+        }catch(ConnectionException $e){
+            $products = Product::orderBy('updated_at', 'desc')->get();
+        }
+
+        return view('home', ['products' => $products]);
     }
 
     public function showCatalogue(){
