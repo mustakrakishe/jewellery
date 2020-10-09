@@ -28185,7 +28185,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\documents\coding\free_time\2020-09-07 laravel\jewellery\resources\js\catalogue\addProduct.js */"./resources/js/catalogue/addProduct.js");
+module.exports = __webpack_require__(/*! D:\documents\coding\free_time\2020-09-07 laravel\jewellery_old\resources\js\catalogue\addProduct.js */"./resources/js/catalogue/addProduct.js");
 
 
 /***/ })

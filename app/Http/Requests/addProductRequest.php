@@ -24,7 +24,7 @@ class addProductRequest extends FormRequest
         $rules = [
             'code' => 'required | max:30',
             'title' => 'required | max:50',
-            'weight' => 'required | numeric | gt:0 | lt:500.01',
+            'weight' => 'required | numeric | min:0.01 | max:500',
             'cost' => 'required | numeric | between:1, 500000',
             'description' => 'max:250',
             'pic' => 'image | dimensions: min_width=223, ratio=1'
@@ -46,8 +46,8 @@ class addProductRequest extends FormRequest
             'title.max' => 'Не более 50 символов.',
             
             'weight.required' => 'Поле Вес обязательно для заполнеия.',
-            'weight.gt' => 'От 0,01 до 500 г.',
-            'weight.lt' => 'От 0,01 до 500 г.',
+            'weight.min' => 'От 0,01 до 500 г.',
+            'weight.max' => 'От 0,01 до 500 г.',
 
             'cost.required' => 'Поле Цена обязательно для заполнеия.',
             'cost.between' => 'От 1 до 500 000 грн..',
