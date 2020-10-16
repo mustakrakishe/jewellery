@@ -11,6 +11,7 @@ use App\Models\ProductType;
 use Predis\Connection\ConnectionException;
 
 class catalogueController extends Controller{
+    private $productImagePlaceholderPath = 'productImages/placeholder.jpg';
 
     public function showAllProducts(){
         $products = '';
@@ -70,7 +71,7 @@ class catalogueController extends Controller{
         return ProductType::all();
     }
     
-    public function showTemplate(){
+    public function showAddProductForm(){
         return view('addProduct', ['types' => ProductType::all()]);
     }
 
@@ -99,12 +100,25 @@ class catalogueController extends Controller{
             $product->imagePath = $req->pic->store('productImages', 'public');
         }
         else{
-            $product->imagePath = 'productImages/placeholder.jpg';
+            $product->imagePath = $productImagePlaceholderPath;
         }
 
 
         $product->save();
         return redirect()->route('catalogue_addProduct')->with('success', 'Продукт успешно добавлен!');
+    }
+
+    public function editProduct($productId){
+        return view('editProduct', ['types' => ProductType::all(), 'product' => Product::find($productId)]);
+    }
+
+    public function deleteProduct($productId){
+        // $product = Product::find($id);
+        // if($imagePath = $product->imagePath != $productImagePlaceholderPath){
+        //     Storage::delete($imagePath);
+        // }
+        // Product::forget($id);
+        // return redirect()->route('catalogue')->with('success', 'Продукт успешно удалён!');
     }
 
     // public function store(StoreBlogPost $request)

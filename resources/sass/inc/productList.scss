@@ -1,3 +1,16 @@
+.product_cell > .control-icons{ 
+    font-size: 14pt;
+    color: #afaeae;
+    background-color: white;
+
+    position: absolute;
+    top: 0;
+    right: 15px;
+
+    padding: 0 7px;
+    border-radius: 2px;
+}
+
 .product_cell > a{
     color: #343a40;
 }
@@ -7,14 +20,14 @@
     text-decoration: none;
 }
 
-.product-content-cell{
-    height: 329px;
-}
+    .product-content-cell{
+        height: 329px;
+    }
 
-.product-content-cell > .image{
-    height: 200px;
-}
+        .product-content-cell > .image{
+            height: 200px;
+        }
 
-.product-content-cell > .title{
-    height: 50px;
-}
+        .product-content-cell > .title{
+            height: 50px;
+        }

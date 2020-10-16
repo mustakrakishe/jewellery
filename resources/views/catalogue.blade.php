@@ -74,7 +74,7 @@
                     </div>
                 @endif
 
-                @foreach($products as $product) 
+                @foreach($products as $product)
                     <div class="product_cell col-md-4 col-12 mb-4">
                         <a href="{{ route('catalogue_showOneProduct', $product->id) }}">   
                             <div class="row m-0 p-0">
@@ -85,6 +85,17 @@
                                 </div>
                             </div>
                         </a>
+                        
+                        @if(Auth::check() && Auth::user()->role == 'admin')
+                            <div class="control-icons">
+                                <a href="{{ route('catalogue_editProduct', $product->id) }}">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="{{ route('catalogue_deleteProduct', $product->id) }}">
+                                    <i class="far fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
