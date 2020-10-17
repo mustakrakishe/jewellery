@@ -108,24 +108,41 @@ class catalogueController extends Controller{
         return redirect()->route('catalogue_addProduct')->with('success', 'Продукт успешно добавлен!');
     }
 
-    public function editProduct($productId){
+    public function showEditProductForm($productId){
         return view('editProduct', ['types' => ProductType::all(), 'product' => Product::find($productId)]);
     }
 
-    public function deleteProduct($productId){
-        // $product = Product::find($id);
-        // if($imagePath = $product->imagePath != $productImagePlaceholderPath){
-        //     Storage::delete($imagePath);
-        // }
-        // Product::forget($id);
-        // return redirect()->route('catalogue')->with('success', 'Продукт успешно удалён!');
+    public function editProduct($productId, addProductRequest $req){
+        $product = Product::find($productId);
+
+        $product->code = $req->input('code');
+        $product->title = $req->input('title');
+
+        if(isset($req->newType)){
+            $productType = new ProductType();
+            $productType->title = $req->input('type');
+            $productType->save();
+
+            $product->product_type_id = $productType->id;
+        }
+        else{
+            $product->product_type_id = $req->input('type');
+        };
+
+        $product->weight = $req->input('weight');
+        $product->cost = $req->input('cost');
+        $product->description = $req->input('description');
+
+        if($req->has('pic')){
+            $product->imagePath = $req->pic->store('productImages', 'public');
+        }
+
+        $product->save();
+            return redirect()->route('catalogue_showOneProduct', ['id' => $product->id, 'product' => $product])->with('success', 'Продукт успешно изменён!');
     }
 
-    // public function store(StoreBlogPost $request)
-    // {
-    //     // The incoming request is valid...
-
-    //     // Retrieve the validated input data...
-    //     $validated = $request->validated();
-    // }
+    public function deleteProduct($productId){
+        Product::find($productId)->delete();
+        return redirect()->route('catalogue')->with('success', 'Продукт успешно удалён!');
+    }
 }

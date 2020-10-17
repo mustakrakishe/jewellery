@@ -9,7 +9,7 @@
     
     <h1 class="text-center text-dark mb-3">Редактировать Продукт</h1>
 
-    <form action="{{ route('addProduct_confirm') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('catalogue_editProduct', $product->id) }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="row justify-content-center">
@@ -22,7 +22,7 @@
                         id="code"
                         class="form-control @error('code') is-invalid @enderror"
                         placeholder="Артикул"
-                        value="{{ old('code') }}"
+                        value="{{ $product->code }}"
                         required
                         autofocus
                     >
@@ -41,7 +41,7 @@
                         id="title"
                         class="form-control @error('title') is-invalid @enderror"
                         placeholder="Название"
-                        value="{{ old('title') }}"
+                        value="{{ $product->title }}"
                         required
                     >
                     @error('title')
@@ -61,7 +61,7 @@
                                     @foreach($types as $type)
                                         <option value="{{ $type->id }}"
                                             <?php
-                                                if(old('type') == $type->id){
+                                                if($product->type == $type->id){
                                                     echo 'selected';
                                                 }
                                             ?>
@@ -75,7 +75,7 @@
                                     id="type"
                                     class="form-control @error('type') is-invalid @enderror"
                                     placeholder="Тип"
-                                    value="{{ old('type') }}"
+                                    value="{{ $product->type }}"
                                     required
                                 >
                                 @error('type')
@@ -112,7 +112,7 @@
                                 class="form-control @error('weight') is-invalid @enderror"
                                 step="0.01"
                                 placeholder="Вес"
-                                value="{{ old('weight') }}"
+                                value="{{ $product->weight }}"
                                 required
                             >
                             @error('weight')
@@ -135,7 +135,7 @@
                                     id="cost"
                                     class="form-control  @error('cost') is-invalid @enderror"
                                     placeholder="Цена"
-                                    value="{{ old('cost') }}"
+                                    value="{{ $product->cost }}"
                                     required
                                 >
                                 @error('cost')
@@ -157,7 +157,7 @@
                         cols="30"
                         rows="10"
                         placeholder="Описание"
-                    >{{ old('description') }}</textarea>
+                    >{{ $product->description }}</textarea>
                     @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -180,7 +180,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success">Добавить</button>
+                <button type="submit" class="btn btn-success">Подтвердить</button>
             </div>
         </div> 
     </form>

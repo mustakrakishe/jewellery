@@ -22,7 +22,7 @@ Route::get('/catalogue',
         Route::post(
             '/catalogue/addProduct/confirm',
             'catalogueController@addProduct'
-        )->name('addProduct_confirm');
+        )->name('catalogue_addProduct_confirm');
 
     Route::post('/catalogue/getProguctSelection',
         'catalogueController@getProguctSelection'
@@ -33,6 +33,10 @@ Route::get('/catalogue',
     )->name('catalogue_showOneProduct');
 
     Route::get('/catalogue/product_{id}/edit',
+        'catalogueController@showEditProductForm'
+    )->name('catalogue_showEditProductForm');
+
+    Route::post('/catalogue/product_{id}/edit/confirm',
         'catalogueController@editProduct'
     )->name('catalogue_editProduct');
 

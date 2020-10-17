@@ -88,7 +88,7 @@
                         
                         @if(Auth::check() && Auth::user()->role == 'admin')
                             <div class="control-icons">
-                                <a href="{{ route('catalogue_editProduct', $product->id) }}">
+                                <a href="{{ route('catalogue_showEditProductForm', $product->id) }}">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 <a href="{{ route('catalogue_deleteProduct', $product->id) }}">
