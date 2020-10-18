@@ -28174,6 +28174,9 @@ $(document).ready(function () {
       }, "json");
     }
   });
+  $('#pic').change(function (event) {
+    $('#preview').attr('src', URL.createObjectURL(event.target.files[0]));
+  });
 });
 
 /***/ }),

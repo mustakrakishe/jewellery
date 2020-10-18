@@ -165,6 +165,8 @@
                     @enderror
                 </div>
                 
+                <img id="preview" width="200"/>
+                
                 <div class="form-group">
                     <label for="pic">Изображение</label>
                     <input
