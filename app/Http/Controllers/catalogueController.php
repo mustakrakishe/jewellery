@@ -41,10 +41,7 @@ class catalogueController extends Controller{
         $types = collect($presentRules)->filter(function ($value, $key) {
             return preg_match('|^(type)|', $key);
         });
-        
-        if(sizeof($types->values())){
-            $products = $products->whereIn('product_type_id', $types->values());
-        }
+        $products = $products->whereIn('product_type_id', $types->values());
 
         $cost_min = $presentRules['cost-min'];
 
