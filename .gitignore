@@ -2,7 +2,8 @@
 /public/hot
 /public/storage
 /public/css
-/public/js
+/public/js/
+/public/fonts
 /redis-2.4.5-win64
 /storage/*.key
 /vendor
