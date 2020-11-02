@@ -36,17 +36,17 @@ $(function(){
         })
         .done(function(data){
             if(data){
-                $('.product_cell:not(#addNewProduct)').remove();
+                $('.product-cell:not(#addNewProduct)').remove();
                 for(productId in data){
                     var product = data[productId];
                     var imgPath = "/storage/" + product.imagePath;
                     var link = '/catalogue/product_' + product.id;
                     $('.product_container').append(
-                        '<div class="product_cell col-md-4 col-6 mb-4">'
+                        '<div class="product-cell col-12 col-md-6 col-lg-4 mb-4">'
                             +'<a href="' + link + '">'
                                 +'<div class="row m-0 p-0">'
-                                    +'<div class="col text-center mx-auto px-5 bg-white product-content-cell shadow-sm">'
-                                        +'<div class="row my-3 image" style="height:200px"><img src="' + imgPath + '" height="100%" class="mx-auto"></div>'
+                                    +'<div class="product-cell-content col text-center mx-auto px-5 bg-white shadow-sm">'
+                                        +'<div class="row my-3 image" style="height:200px"><img src="' + imgPath + '" class="mx-auto"></div>'
                                         +'<div class="row text-center mb-2 title"><p class="mx-auto title">' + product.title + '</p></div>'
                                         +'<div class="row text-center cost"><p class="cost mx-auto">' + number_format(product.cost, 0, ',', ' ') + ' грн.</p></div>'
                                     +'</div>'

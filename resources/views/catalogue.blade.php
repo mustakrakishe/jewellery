@@ -63,7 +63,7 @@
             </div>
             <div class="product_container row">
                 @if(Auth::check() && Auth::user()->role == 'admin')
-                    <div id="addNewProduct" class="product-cell col-12 col-lg-6 col-xl-4 mb-4">
+                    <div id="addNewProduct" class="product_cell col-12 col-lg-6 col-xl-4 mb-4">
                         <a href="{{ route('catalogue_addProduct') }}">
                             <div class="row m-0 p-0">
                                 <div class="product-cell-content col text-center mx-auto px-5 bg-white shadow-sm">
