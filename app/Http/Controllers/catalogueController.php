@@ -11,6 +11,7 @@ use App\Models\ProductType;
 use Predis\Connection\ConnectionException;
 
 class catalogueController extends Controller{
+    private $productImagePlaceholderPath = 'productImages/placeholder.jpg';
 
     public function showAllProducts(){
         $products = '';
@@ -67,7 +68,7 @@ class catalogueController extends Controller{
         return ProductType::all();
     }
     
-    public function showTemplate(){
+    public function showAddProductForm(){
         return view('addProduct', ['types' => ProductType::all()]);
     }
 
@@ -96,7 +97,7 @@ class catalogueController extends Controller{
             $product->imagePath = $req->pic->store('productImages', 'public');
         }
         else{
-            $product->imagePath = 'productImages/placeholder.jpg';
+            $product->imagePath = $productImagePlaceholderPath;
         }
 
 
@@ -104,11 +105,41 @@ class catalogueController extends Controller{
         return redirect()->route('catalogue_addProduct')->with('success', 'Продукт успешно добавлен!');
     }
 
-    // public function store(StoreBlogPost $request)
-    // {
-    //     // The incoming request is valid...
+    public function showEditProductForm($productId){
+        return view('editProduct', ['types' => ProductType::all(), 'product' => Product::find($productId)]);
+    }
 
-    //     // Retrieve the validated input data...
-    //     $validated = $request->validated();
-    // }
+    public function editProduct($productId, addProductRequest $req){
+        $product = Product::find($productId);
+
+        $product->code = $req->input('code');
+        $product->title = $req->input('title');
+
+        if(isset($req->newType)){
+            $productType = new ProductType();
+            $productType->title = $req->input('type');
+            $productType->save();
+
+            $product->product_type_id = $productType->id;
+        }
+        else{
+            $product->product_type_id = $req->input('type');
+        };
+
+        $product->weight = $req->input('weight');
+        $product->cost = $req->input('cost');
+        $product->description = $req->input('description');
+
+        if($req->has('pic')){
+            $product->imagePath = $req->pic->store('productImages', 'public');
+        }
+
+        $product->save();
+            return redirect()->route('catalogue_showOneProduct', ['id' => $product->id, 'product' => $product])->with('success', 'Продукт успешно изменён!');
+    }
+
+    public function deleteProduct($productId){
+        Product::find($productId)->delete();
+        return redirect()->route('catalogue')->with('success', 'Продукт успешно удалён!');
+    }
 }
