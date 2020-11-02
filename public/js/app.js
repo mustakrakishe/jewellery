@@ -49850,9 +49850,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\documents\web_dev\jewellery\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\documents\web_dev\jewellery\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\documents\web_dev\jewellery\resources\sass\inc\productList.scss */"./resources/sass/inc/productList.scss");
+__webpack_require__(/*! D:\documents\coding\free_time\2020-09-07 laravel\jewellery_old\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\documents\coding\free_time\2020-09-07 laravel\jewellery_old\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\documents\coding\free_time\2020-09-07 laravel\jewellery_old\resources\sass\inc\productList.scss */"./resources/sass/inc/productList.scss");
 
 
 /***/ })
