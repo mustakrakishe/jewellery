@@ -14,7 +14,7 @@
     <div class="row">
         <div class="control-panel col-md-3 col-6 bg-white shadow-sm py-4">
             <h5 class="text-center text-dark">Фильтры</h5>
-            <form id="presentRulesForm" action="#" method="post">
+            <form id="presentRulesForm" action="" method="post">
                 @csrf
                 <div class="form-group">
                     <h6>Тип</h6>

@@ -180,7 +180,10 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success">Подтвердить</button>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+                <a href="{{ route('catalogue') }}">
+                    <button type="button" class="btn btn-danger">Отмена</button>
+                </a>
             </div>
         </div> 
     </form>

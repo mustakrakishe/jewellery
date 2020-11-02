@@ -36,9 +36,9 @@ Route::any('/catalogue',
         'catalogueController@showEditProductForm'
     )->name('catalogue_showEditProductForm');
 
-    Route::post('/catalogue/product_{id}/edit/confirm',
-        'catalogueController@editProduct'
-    )->name('catalogue_editProduct');
+        Route::post('/catalogue/product_{id}/edit/confirm',
+            'catalogueController@editProduct'
+        )->name('catalogue_editProduct');
 
     Route::get('/catalogue/product_{id}/delete',
         'catalogueController@deleteProduct'
