@@ -6,7 +6,7 @@ Route::get('/',
     'catalogueController@showAllProducts'
 )->name('home');
 
-Route::get('/catalogue',
+Route::any('/catalogue',
     'catalogueController@showCatalogue'
 )->name('catalogue');
 
