@@ -56,12 +56,12 @@ $(function(){
                     );
                 };
 
-                $('.product-content-cell').mouseenter(function(){
+                $('.product-cell-content').mouseenter(function(){
                     $(this).removeClass('shadow-sm');
                     $(this).addClass('shadow');
                 })
             
-                $('.product-content-cell').mouseleave(function(){
+                $('.product-cell-content').mouseleave(function(){
                     $(this).removeClass('shadow');
                     $(this).addClass('shadow-sm');
                 })
